@@ -1,56 +1,57 @@
-# 🌾 FarmIntel – Smart Farming with Edge AI on ESP32S3
+# 🌾 FarmIntel – Edge AI Smart Farming using ESP32S3 and Edge Impulse
 
-**FarmIntel** is an Edge AI-powered IoT solution built on the **XIAO ESP32S3** microcontroller to perform real-time classification of fruits and bugs. It uses a **custom-trained ML model** built with **Edge Impulse**, running completely offline — ideal for remote or resource-constrained environments.
+**FarmIntel** is a real-time fruit and insect detection system developed using the **XIAO ESP32S3** microcontroller with camera support. The project uses a **custom-trained machine learning model** built on **Edge Impulse** and runs it directly on the microcontroller using the **Arduino IDE**.
 
----
-
-## 🔍 Project Overview
-
-This project aims to assist farmers by enabling real-time detection of:
-- 🐛 **Pests** damaging crops
-- 🍎 **Fruits** ready for harvest
-
-The model runs entirely on the ESP32S3, eliminating the need for cloud connectivity, making it suitable for **on-field, low-power** smart agriculture use.
+This project demonstrates how low-power embedded devices can use **Edge AI** for smart agriculture — even without internet access.
 
 ---
 
-## 🧠 ML Model
+## 🧠 What I Did
 
-- Trained on the **Edge Impulse** platform
-- Dataset: Images of fruits and insects
-- Model type: Image classification
-- Accuracy: ~85% in real-world conditions
-- Exported as **Arduino-compatible C++ library**
-- Deployed to **XIAO ESP32S3**
-
----
-
-## 🔧 Tools & Technologies
-
-- **XIAO ESP32S3** (Edge AI-capable microcontroller)
-- **Edge Impulse** (Model training & dataset handling)
-- **Arduino IDE** (with Edge Impulse Arduino library)
-- **Camera Module** (connected to ESP32S3)
-- **C/C++** for firmware
-- **Serial Monitor or OLED Display** for predictions
+- Collected a dataset of fruits and bugs
+- Used the **Edge Impulse platform** to train an **image classification model**
+- Exported the model as a **ZIP Arduino Library** from Edge Impulse
+- Configured my **ESP32S3** device on Edge Impulse (including device ID and connection)
+- Imported the Arduino library into Arduino IDE and wrote code to classify camera input
+- Connected a compatible camera module to the ESP32S3
+- Displayed classification results via **Serial Monitor**
 
 ---
 
-## 📦 Setup & Deployment
+## 🔧 Tools & Components Used
 
-1. **Train & Export Model from Edge Impulse**
-   - Train with datasets or images .
-   - Export as Arduino library (ZIP)
+- **XIAO ESP32S3** microcontroller (with onboard camera support)
+- **Edge Impulse** (for training the ML model)
+- **Arduino IDE** (for programming the ESP32S3)
+- **Custom camera module** (OV2640 or similar)
+- Serial monitor for output (or OLED display optionally)
 
-2. **Integrate Library in Arduino IDE**
-   - Include `.zip` in Arduino
-   - Add `#include <edge-impulse-project-name>` in code
+---
 
-3. **Connect camera to ESP32S3**
-   - Use pins compatible with XIAO ESP32S3
+## ⚙️ How It Works
 
-4. **Upload the firmware**
-   ```bash
-   Select board: XIAO ESP32S3
-   Select Port : COM8 (USB we connect to system. )
-   Upload via Arduino IDE
+1. **Train the model**
+   - Collected images of bugs and fruits
+   - Labeled them using Edge Impulse's data labeling tools
+   - Trained the model using their vision/image classification pipeline
+
+2. **Download model as Arduino library**
+   - Exported as `.zip` file directly from Edge Impulse
+
+3. **Program the ESP32S3**
+   - Imported the ZIP library into Arduino IDE
+   - Wrote a sketch to initialize the camera, capture frames, and run the model
+   - Viewed classification results in the Serial Monitor
+
+4. **Edge device performs prediction**
+   - No internet required
+   - Works offline directly on the ESP32S3 board
+
+---
+
+## ✅ Output Example
+
+On the serial monitor:
+![Screenshot 2025-06-15 223833](https://github.com/user-attachments/assets/f77c2497-dd6d-479d-9a76-161f308fc99f)
+![Screenshot 2025-06-15 214743](https://github.com/user-attachments/assets/b6bbaeb3-d826-48ff-97c0-2379795ad0b0)
+
