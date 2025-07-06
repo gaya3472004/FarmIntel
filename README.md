@@ -34,6 +34,7 @@ This project demonstrates how low-power embedded devices can use **Edge AI** for
    - Collected images of bugs and fruits
    - Labeled them using Edge Impulse's data labeling tools
    - Trained the model using their vision/image classification pipeline
+   - Follow the example Object detection model documenation attached here to create and train a model.
 
 2. **Download model as Arduino library**
    - Exported as `.zip` file directly from Edge Impulse
